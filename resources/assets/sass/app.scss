@@ -1,0 +1,68 @@
+
+// Fonts
+//@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import "variables2";
+//@import "node_modules/bootstrap/scss/bootstrap";
+// Bootstrap
+//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/bootswatch/cyborg/variables";
+@import "node_modules/bootswatch/cyborg/bootstrap";
+//
+//@import "variables";
+//
+// Foundation
+//@import "node_modules/foundation-sites/scss/foundation";
+//
+// Include Everything (True) for the Flex Grid :);
+//@include foundation-everything(true);
+
+.auth {
+  margin-top: 10%;
+
+}
+.jumbotron {
+
+  background-image: url("../images/pomme2.png");
+  background-size: cover;
+  height:100vh;
+
+}
+.jumbotron h1
+{
+  color: #fff;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+a.list-group-item:hover, button.list-group-item:hover, a.list-group-item:focus, button.list-group-item:focus {
+  text-decoration: none;
+  color: #0ce3ac;
+  background-color: transparent;
+}
+
+a.list-group-item, button.list-group-item {
+  color: #0ce3ac;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #303030;
+  border: 1px solid #464545;
+}
+
+.navbar-inverse{
+  background-color:	#007BA7;
+  font-weight: bold;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: black;
+  font-weight: bold;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered li
+{
+  color:black;
+}
