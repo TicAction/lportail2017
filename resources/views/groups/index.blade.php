@@ -3,52 +3,61 @@
 
 @section('content')
 
+    @if(count($groups) >= 1)
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                Liste de mes groupes
+            </h3>
+        </div>
+        <div class="panel-body">
 
 
-        <h3>Liste de mes groupes</h3>
-        </hr>
+                <table class="table">
+                    <tr>
+                        <th>Nom du groupe</th>
 
 
-        @if(count('groups') > 0)
-
-        <table class="table">
-            <tr>
-                <th>Nom du groupe</th>
-
-
-                <th>Enseignant(e)</th>
-                <th>Action</th>
-            </tr>
+                        <th>Enseignant(e)</th>
+                        <th>Action</th>
+                    </tr>
 
 
 
-            @foreach(Auth::user()->groups as $group)
-                <tr>
-                    <td> {{$group->group_name }}</td>
-                    <td>
-                        @foreach($group->users as $user)
-                       {{$user->name}}
-                            @endforeach
-                    </td>
+                    @foreach($groups as $group)
+                        <tr>
+                            <td> {{$group->group_name }}</td>
+                            <td>
+                                @foreach($group->users as $user)
+                                    {{$user->name}}
+                                @endforeach
+                            </td>
 
-                    <td>
-                        <a href="{{route('group.edit',$group->id)}}"><button class="btn btn-primary btn-xs"> Editer le groupe</button></a>
-                        <a href="{{route('group.show',$group->id)}}"><button class="btn btn-success btn-xs"> Voir la fiche</button></a>
+                            <td>
+                                <a href="{{route('group.edit',$group->id)}}"><button class="btn btn-primary btn-xs"> Editer le groupe</button></a>
+                                <a href="{{route('group.show',$group->id)}}"><button class="btn btn-success btn-xs"> Voir la fiche</button></a>
 
-                        {!! Form::open(['action' => ['GroupsController@destroy', $group->id],'method'=>'DELETE','style' => 'display:inline' ]) !!}
+                                {!! Form::open(['action' => ['GroupsController@destroy', $group->id],'method'=>'DELETE','style' => 'display:inline' ]) !!}
 
-                        {!! Form::submit('Effacer', ['class' => 'btn btn-danger btn-xs']) !!}
+                                {!! Form::submit('Effacer', ['class' => 'btn btn-danger btn-xs']) !!}
 
-                        {!! Form::close() !!}
+                                {!! Form::close() !!}
 
 
-                    </td>
-                </tr>
-            @endforeach
+                            </td>
+                        </tr>
+                    @endforeach
 
-        </table>
-        @else
-            <h3>Aucun groupe inscrit</h3>
+                </table>
+
+        </div>
+    </div>
+
+
+    @else
+        <a href="{{route('group.create')}}" class="btn btn-success">Inscrire un nouveau groupe</a>
     @endif
+
+
 @endsection
 

@@ -107,9 +107,30 @@ class Student extends Model
         return $this->specials()->pluck('id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function behaviors()
     {
         return $this->belongsToMany(Behavior::class);
+    }
+
+    /**
+     * @param $firstname
+     * @return string
+     */
+    public function setFirstnameAttribute($firstname)
+    {
+        return $this->attributes['firstname'] = ucfirst($firstname);
+    }
+
+    /**
+     * @param $lastname
+     * @return string
+     */
+    public function setLastnameAttribute($lastname)
+    {
+        return $this->attributes['lastname'] = ucfirst($lastname);
     }
 
 }

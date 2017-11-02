@@ -1,13 +1,28 @@
-
-
-
-        <div class="list-group table-of-contents">
-
-        <a href="{{route('student.index')}}" class="list-group-item">Liste des élèves</a>
-        <a href="{{route('student.create')}}" class="list-group-item">Ajouter des élèves</a>
-        <a href="{{route('group.create')}}" class="list-group-item">Ajouter un groupe</a>
-        <a href="{{route('group.index')}}" class="list-group-item">Liste des groupes</a>
-        <a href="{{route('observation.create')}}" class="list-group-item">Ajouter une observation</a>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Horaire de la semaine</h3>
     </div>
+    <div class="panel-body">
+        <ul class="list-unstyled">
+            <li><a href="">Lundi AGE</a></li>
+            <li><a href="">Rencontre à la CS</a></li>
+            <li><a href="">Rencontre au Gym</a></li>
+            <li><a href="">Rencontre de parents</a></li>
+        </ul>
+    </div>
+</div>
 
 
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Moment fort de la semaine</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="list-unstyled">
+            <li><a href="">Carnaval le 20 octobre</a></li>
+            <li><a href="">Sortie du film</a></li>
+            <li><a href="">Rencontre au Gym</a></li>
+            <li><a href="">Rencontre de parents</a></li>
+        </ul>
+    </div>
+</div>

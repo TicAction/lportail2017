@@ -18,7 +18,7 @@ Auth::routes();
 Route::get('/', 'HomesController@index')->name('home');
 
 //route sections des élèves
-Route::get('/eleve','StudentsController@index')->name('student.index');
+Route::get('/eleve/','StudentsController@index')->name('student.index');
 Route::get('/eleve/nouveau','StudentsController@create')->name('student.create');
 Route::post('eleve','StudentsController@store')->name('student.store');
 Route::get('eleve/{student}/modifier','StudentsController@edit')->name("student.edit");
@@ -45,6 +45,7 @@ Route::put('profil/{profil}','ProfilsController@update')->name("profil.update");
 Route::get('profil/{profil}','ProfilsController@show')->name("profil.show");
 Route::delete('profil/{profil}','ProfilsController@destroy')->name("profil.destroy");
 
+
 //Route section observation comportement
 
 Route::get('/observation','BehaviorsController@index')->name('observation.index');
@@ -54,6 +55,29 @@ Route::get('observation/{behavior}/modifier','BehaviorsController@edit')->name("
 Route::put('observation/{behavior}','BehaviorsController@update')->name("observation.update");
 Route::get('observation/{behavior}','BehaviorsController@show')->name("observation.show");
 Route::delete('observation/{behavior}','BehaviorsController@destroy')->name("observation.destroy");
+
+
+//Route section école
+
+Route::get('/ecole','SchoolsController@index')->name('ecole.index');
+Route::get('/ecole/nouveau','SchoolsController@create')->name('ecole.create');
+Route::post('ecole','SchoolsController@store')->name('ecole.store');
+Route::get('ecole/{school}/modifier','SchoolsController@edit')->name("ecole.edit");
+Route::put('ecole/{school}','SchoolsController@update')->name("ecole.update");
+Route::get('ecole/{school}','SchoolsController@show')->name("ecole.show");
+Route::delete('ecole/{school}','SchoolsController@destroy')->name("ecole.destroy");
+
+
+//Route section schoolboard
+
+//Route section école
+
+Route::get('/cs','SchoolboardsController@index')->name('cs.index');
+Route::get('/cs/nouveau','SchoolboardsController@create')->name('cs.create');
+Route::post('cs','SchoolboardsController@store')->name('cs.store');
+Route::get('cs/{schoolboard}/modifier','SchoolboardsController@edit')->name("cs.edit");
+Route::put('cs/{schoolboard}','SchoolboardsController@update')->name("cs.update");
+Route::get('cs/{schoolboard}','SchoolboardsController@show')->name("cs.show");
 
 
 //route section des devoirs

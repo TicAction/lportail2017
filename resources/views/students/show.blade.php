@@ -3,9 +3,10 @@
 @section('content')
 
     @if(count($kid) > 0)
+
         @foreach($kid->users as $user)
 
-            @if($user->id == Auth::user()->id )
+            @if($user->id == Auth::user()->id)
 
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -80,7 +81,12 @@
                     </div>
                 </div>
 
+                @else
+                <div class="alert alert-danger text-center">
+                    <h5 class="text-uppercase">Vous n'avez pas le droit de voir cette fiche</h5>
+                </div>
             @endif
+
         @endforeach
 
     @endif

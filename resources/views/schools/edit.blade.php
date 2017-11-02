@@ -1,67 +1,50 @@
 @extends('layouts.app')
 @section('content')
 
-    @foreach($student->users as $user)
+    @foreach($school->users as $user)
 
         @if($user->id == Auth::user()->id )
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Informations personnelles</h3>
+                    <h3 class="panel-title">Modifier {{$school->school_name }}</h3>
                 </div>
                 <div class="panel-body">
-
-                    <div class="col-md-6">
-
-
-                        {!! Form::model($student,['route'=>['student.update',$student->id],'class'=>'form-horizontal']) !!}
+                    <div class="col-md-12">
+                        {!! Form::model($school,['route'=>['ecole.update',$school->id],'class'=>'form-horizontal']) !!}
                         {!! Form::hidden('_method','PUT') !!}
 
-
                         <div class="form-group">
-                            {!! Form::label('firstname',"Prénom de l'enfant") !!}
-                            {!! Form::text('firstname',$student->firstname,['class'=>'form-control','placeholder'=>'prénom']) !!}
+                            {!! Form::label('school_name',"Nom de l'école") !!}
+                            {!! Form::text('school_name',$school->school_name,['class'=>'form-control','placeholder'=>"Nom de l'école"]) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('lastname',"Nom de famille de l'enfant") !!}
-                            {!! Form::text('lastname',$student->lastname,['class'=>'form-control','placeholder'=>'nom de famille']) !!}
+                            {!! Form::label('school_email',"Adresse courriel") !!}
+                            {!! Form::text('school_email',$school->school_email,['class'=>'form-control','placeholder'=>'ecole@ecole.com']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('birthday',"Anniversaire de l'enfant") !!}
-                            {!! Form::text('birthday',$student->birthday->format('Y-m-d'),['class'=>'form-control','id'=>'datepicker','placeholder'=>'Date de fêtes']) !!}
+                            {!! Form::label('school_phone',"Numéro de téléphone") !!}
+                            {!! Form::text('school_phone',$school->school_phone,['class'=>'form-control','placeholder'=>'(xxx)xxx-xxxx']) !!}
                         </div>
-
                         <div class="form-group">
-                            {{--{!! Form::label('group_id',"Groupe") !!}--}}
+                            {!! Form::label('school_adress',"Adresse de l'établissement") !!}
+                            {!! Form::text('school_adress',$school->school_adress,['class'=>'form-control','placeholder'=>'Adresse compléte']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('schoolboard_id',"Commission scolaire") !!}
 
-                            {!! Form::hidden('group_id',$student->groups,['class'=>'form-control','id'=>'datepicker','placeholder'=>'Vous devez créer un groupe']) !!}
+                            {!! Form::select('schoolboard_id',$schoolboards,$school->school_schoolboard,['class'=>'form-control','id'=>'service','multiple']) !!}
 
                         </div>
 
 
-                            {!! Form::submit('Modifier',['class'=>'btn btn-primary']) !!}
+                        {!! Form::submit('Soumettre',['class'=>'btn btn-primary btn-block']) !!}
+
                     </div>
 
 
-                    <div class="col-md-6">
 
-
-                        <div class="form-group">
-                            {!! Form::label('service_list',"Services") !!}
-                            {!! Form::select('service_list[]',$service,null,['id' => 'service','class'=>'form-control','multiple']) !!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::label('academy_list',"Situation académique") !!}
-                            {!! Form::select('academy_list[]',$academy,null,['id' => 'academy','class'=>'form-control','multiple']) !!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::label('special_list',"Conditions particulières") !!}
-                            {!! Form::select('special_list[]',$special,null,['id' => 'special','class'=>'form-control','multiple']) !!}
-                        </div>
-
-
-                        {!! Form::close() !!}
-                    </div>
                 </div>
+            </div>
             </div>
 
 

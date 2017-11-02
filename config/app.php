@@ -190,6 +190,7 @@ return [
 
         Unisharp\Ckeditor\ServiceProvider::class,
 
+
     ],
 
     /*
@@ -238,11 +239,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
 
         //ajouter par moi
         'Date' => Jenssegers\Date\Date::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

@@ -7,8 +7,8 @@
 //@import "node_modules/bootstrap/scss/bootstrap";
 // Bootstrap
 //@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "node_modules/bootswatch/cyborg/variables";
-@import "node_modules/bootswatch/cyborg/bootstrap";
+@import "node_modules/bootswatch/yeti/variables";
+@import "node_modules/bootswatch/yeti/bootstrap";
 //
 //@import "variables";
 //
@@ -58,7 +58,7 @@ a.list-group-item, button.list-group-item {
   font-weight: bold;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: black;
+  color: lightgrey;
   font-weight: bold;
 }
 

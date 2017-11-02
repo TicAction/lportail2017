@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Behavior;
+use App\Http\Requests\BehaviorRequest;
 use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -10,6 +11,11 @@ use function Sodium\compare;
 
 class BehaviorsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +50,7 @@ class BehaviorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BehaviorRequest $request)
     {
         $observation = new Behavior();
         $observation->observation_date = $request->get('observation_date');
@@ -87,7 +93,7 @@ class BehaviorsController extends Controller
      * @param  \App\Behavior  $behavior
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Behavior $behavior)
+    public function update(BehaviorRequest $request, Behavior $behavior)
     {
         $req = $request->all();
 

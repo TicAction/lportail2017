@@ -2,7 +2,7 @@
 @section('content')
 
     <h3>Modifier un comportement</h3>
-    {{--{{$behavior->students->fullname}}--}}
+
     <hr>
 
 

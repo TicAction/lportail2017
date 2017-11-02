@@ -20,4 +20,6 @@ return [
     "Forgot Your Password?"=>"Mot de passe oublié ?",
     "Send Password Reset Link"=> 'Réinitialiser le mot de passes',
     "Confirm Password"=>"Confirmation du mot de passe",
+
+
 ];

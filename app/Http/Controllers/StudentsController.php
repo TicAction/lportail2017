@@ -28,11 +28,8 @@ class StudentsController extends Controller
     public function index()
     {
 
-
-//        $students = Student::with('users')->get();
         $students = Student::all();
-        $students->load(['users','services','academies']);
-
+        $students->load(['users', 'services', 'academies']);
 
         return view('students.index', compact('students'));
 
@@ -52,7 +49,7 @@ class StudentsController extends Controller
         $special = Special::pluck('name', 'id');
         $group = Group::pluck('group_name', 'id');
 
-        return view("students.create", compact('students', 'group', 'service', 'academy','special'));
+        return view("students.create", compact('students', 'group', 'service', 'academy', 'special'));
     }
 
     /**
@@ -109,7 +106,7 @@ class StudentsController extends Controller
         $academy = Academy::pluck('name', 'id');
         $special = Special::pluck('name', 'id');
 
-        return view('students.edit', compact('student','service','academy','special'));
+        return view('students.edit', compact('student', 'service', 'academy', 'special'));
     }
 
     /**

@@ -20,4 +20,10 @@ class School extends Model
     {
         return $this->belongsToMany(Classroom::class);
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+
+    }
 }

@@ -149,7 +149,12 @@ return [
         'size' => 'Taille',
         'E-Mail Address' => 'Adresse courriel',
         'behavior' => 'Comportement',
-        
+        'group_name' => 'groupe',
+        'observation_date'=>"date de l'observation",
+        'observation_content'=>"observation",
+        'student'=>'Eleve',
+        'group_id'=>'groupe',
+
     ],
 
 ];

@@ -7,4 +7,4 @@
         {{$profil->student->firstname}}
     @endforeach
 
-@endsection
+@endsectiongro

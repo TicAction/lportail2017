@@ -2,11 +2,10 @@
 
 @section('content')
 
-
     <div class="container">
     <div class="row">
         {{--@auth()--}}
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-primary auth">
                 <div class="panel-heading">{{trans('messages.Login')}}</div>
                 <div class="panel-body">
@@ -43,7 +42,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
+                               <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{trans('messages.Remember me')}}
                                     </label>

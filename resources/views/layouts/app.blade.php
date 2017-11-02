@@ -3,34 +3,39 @@
 <body>
 @include('layouts.partials.navbar')
 
-    @if (Auth::guest())
+@if (Auth::guest())
 
     @yield('content')
 
-    @else
+@else
 
-        <div class="container-fluid">
-            @include('errors.messages')
+    <div class="container-fluid">
+
+        @include('errors.messages')
+        <div class="text-center">
             @include('errors.form')
-            <div class="col-md-3">
+        </div>
+        <div class="col-md-3">
 
-                @include('partials.sidebar')
+            @include('partials.sidebar')
 
 
-            </div>
-            <div class="col-md-9">
+        </div>
+        <div class="col-md-9 ">
 
-                @yield('content')
-
-            </div>
+            @yield('content')
 
         </div>
 
-    @endif
+    </div>
 
-        <!-- Scripts -->
+@endif
 
-       @include("layouts.partials.footer")
+
+
+<!-- Scripts -->
+
+@include("layouts.partials.footer")
 
 </body>
 </html>

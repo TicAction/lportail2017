@@ -2,93 +2,14 @@
 
 @section('content')
 
-    @if(count($kid) > 0)
+    <h3>{{$school->school_name}} <small><a href="{{route('cs.show',$school->schoolboard->id)}}">{{$school->schoolboard->schoolboard_name}}</a></small></h3>
 
-        @foreach($kid->users as $user)
+    <address>
 
-            @if($user->id == Auth::user()->id)
+        Adresse : {{$school->school_adress}}<br>
+        Téléphone : {{$school->school_phone}}<br>
+        Courriel : {{$school->school_email}}<br>
 
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Page du profil de {{$kid->fullname}}</h3>
-                    </div>
-
-                    <div class="panel-body">
-                        Date de naissance : {{$kid->birthday->format("d-m-Y")}}
-                        <div class="row">
-                            <div class="col-md-6">
-
-
-                                <h3>Observations académique</h3>
-                                @if($kid->academies)
-
-                                    @foreach($kid->academies as $academy)
-                                        <ul class="list-unstyled">
-                                            <li>  {{$academy->name}}</li>
-                                        </ul>
-
-                                    @endforeach
-                                @else
-                                    Aucune donnée enregistrée
-                                @endif
-                            </div>
-                            <div class="col-md-6">
-                                <h3>Services</h3>
-
-                                @if($kid->services)
-                                    @foreach($kid->services as $service)
-                                        <ul class="list-unstyled">
-                                            <li>  {{$service->name}}</li>
-                                        </ul>
-
-                                    @endforeach
-
-                                @else
-                                    Aucune donnée enregistrée
-                                @endif
-
-                            </div>
-
-                        </div>
-
-                        <div class="text-right">
-                            <a href="{{route('student.edit',$kid->id)}}" class="btn btn-info">Modifier</a>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-12">
-
-                                <h3>Liste des comportements</h3>
-                                @if($kid->behaviors)
-                                    @foreach($kid->behaviors as $behavior)
-                                        <strong>{{$behavior->observation_date->format('d/m/Y')}}</strong>
-
-                                        <div class="well">
-                                        {!! $behavior->observation_content !!}
-                                        <div class="text-right">
-                                            <a href="{{route('observation.edit',$behavior->id)}}" class="btn btn-info btn-xs">Modifier</a>
-                                        </div>
-                                        </div>
-
-                                    @endforeach
-                                @else
-                                @endif
-                            </div>
-
-
-                        </div>
-
-                    </div>
-                </div>
-
-                @else
-                <div class="alert alert-danger text-center">
-                    <h5 class="text-uppercase">Vous n'avez pas le droit de voir cette fiche</h5>
-                </div>
-            @endif
-
-        @endforeach
-
-    @endif
+    </address>
 
 @endsection

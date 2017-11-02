@@ -7,9 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Schoolboard extends Model
 {
 
-    protected $fillable =['schoolboard_name','schoolboard_adress','schoolboard_email','schoolboard_phone'];
+    protected $fillable =[
+        'schoolboard_name',
+        'schoolboard_adress',
+        'schoolboard_city',
+        'schoolboard_email',
+        'schoolboard_phone',
+        'schoolboard_region',
+        'schoolboard_url'
+    ];
 
-    protected $dates =['created_at','updated_at'];
+
 
 
     public function schools()

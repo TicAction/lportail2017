@@ -11,7 +11,7 @@
                 <h3 class="panel-title">Liste des élèves</h3>
             </div>
             <div class="panel-body">
-                <table class="table">
+                <table class="table table-hover">
                     <tr>
                         <th>Nom de l'enfant</th>
 
@@ -48,7 +48,16 @@
                     @endforeach
                 </table>
                 @else
-                    <h3>Vous n'avez inscrit aucun enfant pour le moment</h3>
+                    <div class="alert alert-warning">
+                        <p class="text-center text-uppercase">
+                           Aucun élève enregistrer pour votre classe
+                        </p>
+                        <p class="text-center text-uppercase">
+                           Avant vous devez créer un groupe dans la section profil de l'enseignant
+                        </p>
+                    </div>
+
+
                 @endif
             </div>
         </div>

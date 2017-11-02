@@ -29,7 +29,16 @@
                             {!! Form::label('birthday',"Anniversaire de l'enfant") !!}
                             {!! Form::text('birthday',$student->birthday->format('Y-m-d'),['class'=>'form-control','id'=>'datepicker','placeholder'=>'Date de fêtes']) !!}
                         </div>
-                        {!! Form::submit('Modifier',['class'=>'btn btn-primary']) !!}
+
+                        <div class="form-group">
+                            {{--{!! Form::label('group_id',"Groupe") !!}--}}
+
+                            {!! Form::hidden('group_id',$student->groups,['class'=>'form-control','id'=>'datepicker','placeholder'=>'Vous devez créer un groupe']) !!}
+
+                        </div>
+
+
+                            {!! Form::submit('Modifier',['class'=>'btn btn-primary']) !!}
                     </div>
 
 

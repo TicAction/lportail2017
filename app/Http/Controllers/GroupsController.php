@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Group;
-use Illuminate\Http\Request;
+use App\Http\Requests\GroupRequest;
 use Illuminate\Support\Facades\Auth;
 
 class GroupsController extends Controller
 {
+
+    public function __construct()
+    {
+        return $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +21,7 @@ class GroupsController extends Controller
      */
     public function index()
     {
-        $groups = Group::with('users')->get();
+       $groups = Auth::user()->groups()->get();
 
         return view('groups.index', compact('groups'));
     }
@@ -27,7 +33,8 @@ class GroupsController extends Controller
      */
     public function create()
     {
-        $group = new Group();
+        $group = Group::with('users')->get();
+
 
         return view('groups.create', compact('group'));
     }
@@ -38,7 +45,7 @@ class GroupsController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GroupRequest $request)
     {
         $userId = Auth::user()->id;
 
@@ -47,6 +54,9 @@ class GroupsController extends Controller
         $group->group_name = $request->get('group_name');
         $group->save();
         $group->users()->attach($userId);
+
+
+
 
         return redirect('groupe');
     }
@@ -72,7 +82,7 @@ class GroupsController extends Controller
      */
     public function edit($id)
     {
-        $group = Group::find($id);
+        $group = Group::with('users')->get($id);
 
         return view('groups.edit', compact('group'));
 
@@ -85,7 +95,7 @@ class GroupsController extends Controller
      * @param  \App\Group $group
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GroupRequest $request, $id)
     {
         $group = Group::findOrFail($id);
         $group->update($request->all());
@@ -104,7 +114,7 @@ class GroupsController extends Controller
     {
         $gr = Group::find($id);
 
-        $gr->users()->detach(Auth::user());
+        $gr->users()->detach();
         Group::destroy($id);
 
 
