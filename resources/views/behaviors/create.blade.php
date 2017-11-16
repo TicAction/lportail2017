@@ -10,7 +10,9 @@
                 {!! Form::open(['action'=>'BehaviorsController@store','method'=>'POST','class'=>'form-horizontal']) !!}
                 <div class="form-group">
                     {!! Form::label('student',"Élève") !!}
-                    {!! Form::select('student[]',$students,null,['id'=>'student','multiple','class'=>'form-control']) !!}
+
+                    {!! Form::select('student[]', $students , null,['id'=>'student','multiple','class'=>'form-control']) !!}
+
                 </div>
 
                 <div class="form-group">

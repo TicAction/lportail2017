@@ -13,7 +13,8 @@
     {{--<!-- Styles -->--}}
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-      
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />
 

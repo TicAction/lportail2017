@@ -64,11 +64,14 @@ class StudentsController extends Controller
 
         $student = new Student();
 
-        $student->firstname = $request->get('firstname');
-        $student->lastname = $request->get('lastname');
+        $firstname =$student->firstname = $request->get('firstname');
+        $lastname =$student->lastname = $request->get('lastname');
         $student->birthday = $request->get('birthday');
         $student->group_id = $request->get('group_id');
         $student->code = substr(uniqid(), -5);
+
+        $fullname =$firstname.' '.$lastname ;
+        $student->fullname = $fullname;
         $student->save();
 
 

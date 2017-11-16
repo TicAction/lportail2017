@@ -13,7 +13,7 @@ class Student extends Model
     /**
      * @var array
      */
-    protected $fillable =['firstname','lastname','group_id','birthday','code'];
+    protected $fillable =['firstname','lastname','group_id','birthday','code','fullname'];
     /**
      * @var array
      */
@@ -27,13 +27,10 @@ class Student extends Model
      return $this->belongsToMany(User::class);
    }
 
-    /**
-     * @return string
-     */
-    public function getFullnameAttribute()
-   {
-      return $this->firstname." ".$this->lastname;
-   }
+    public function behaviors()
+    {
+        return $this->belongsToMany(Behavior::class);
+    }
 
     /**
      * @return mixed
@@ -110,10 +107,7 @@ class Student extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function behaviors()
-    {
-        return $this->belongsToMany(Behavior::class);
-    }
+
 
     /**
      * @param $firstname
@@ -132,5 +126,7 @@ class Student extends Model
     {
         return $this->attributes['lastname'] = ucfirst($lastname);
     }
+
+
 
 }

@@ -29,6 +29,7 @@
 
     </div>
 
+    {{--@include("partials.pub")--}}
 @endif
 
 

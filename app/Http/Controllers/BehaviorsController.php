@@ -6,6 +6,8 @@ use App\Behavior;
 use App\Http\Requests\BehaviorRequest;
 use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use function Sodium\compare;
 
@@ -24,7 +26,8 @@ class BehaviorsController extends Controller
     public function index()
     {
          $observations= Behavior::all();
-        $observations->load('students');
+         $observations->load('students');
+
 
         return view("behaviors.index",compact('observations'));
     }
@@ -36,10 +39,15 @@ class BehaviorsController extends Controller
      */
     public function create()
     {
+        $user_id = Auth::user()->id;
         $observation = new Behavior();
 
 
-        $students = Student::pluck('firstname','id');
+        $students = DB::table('student_user')
+            ->join('students','id','=','student_user.student_id')
+            ->where('user_id','=',$user_id)
+            ->pluck('fullname','id');
+
 
      return view('behaviors.create',compact('observation','students'));
     }
@@ -52,7 +60,10 @@ class BehaviorsController extends Controller
      */
     public function store(BehaviorRequest $request)
     {
+
         $observation = new Behavior();
+
+
         $observation->observation_date = $request->get('observation_date');
         $observation->observation_content = $request->get('observation_content');
         $observation->save();
@@ -71,6 +82,7 @@ class BehaviorsController extends Controller
      */
     public function show(Behavior $behavior)
     {
+
         return view("observation.show")->with('kid', $behavior);
     }
 
@@ -82,7 +94,13 @@ class BehaviorsController extends Controller
      */
     public function edit(Behavior $behavior)
     {
-        $students = Student::pluck('firstname', 'id');
+
+        $user_id = Auth::user()->id;
+        $students = DB::table('student_user')
+            ->join('students','id','=','student_user.student_id')
+            ->where('user_id','=',$user_id)
+            ->pluck('fullname','id');
+
         return view('behaviors.edit',compact('behavior','students'));
     }
 

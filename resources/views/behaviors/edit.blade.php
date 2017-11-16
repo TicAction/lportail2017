@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section('content')
 
-    <h3>Modifier un comportement</h3>
-
-    <hr>
-
-
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Modifier un comportement</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-12">
     {!! Form::model($behavior,['route'=>['observation.update',$behavior->id],'class'=>'form-horizontal']) !!}
     {!! Form::hidden('_method','PUT') !!}
     <div class="form-group">
@@ -28,4 +29,9 @@
     {!! Form::submit('Soumettre les informations',['class'=>'btn btn-primary']) !!}
 
     {!! Form::close() !!}
+
+
+            </div>
+        </div>
+
 @endsection

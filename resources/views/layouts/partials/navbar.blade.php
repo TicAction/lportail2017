@@ -31,7 +31,9 @@
             <ul class="nav navbar-nav">
 
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Élèves
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        {{Html::image('images/addkid.png','',['height'=>'35px','width'=>'35px','title'=>'Élèves'])}}
+                        Élèves
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         {{--<li><a href="{{route('student.index')}}">Liste</a></li>--}}
@@ -40,7 +42,9 @@
                 </li>
 
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profil enseignant
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        {{Html::image('images/profil.png','',['height'=>'35px','witdh'=>'35px','title'=>'Profil enseignant'])}}
+                        Profil enseignant
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{route('group.index')}}">Liste des groupe</a></li>
@@ -51,11 +55,13 @@
                 </li>
 
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Observation
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        {{Html::image('images/behaviors.png','',['height'=>'35px','width'=>'35px','title'=>'Comportement'])}}
+                        Observation
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{route('observation.create')}}">Ajouter</a></li>
-                        <li><a href="#">autres</a></li>
+                        <li><a href="{{route('observation.index')}}">Liste des comportements</a></li>
                         <li><a href="#">autres</a></li>
                     </ul>
                 </li>
@@ -64,8 +70,10 @@
 
 
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"> {{$group->group_name}}
-                        <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        {{Html::image('images/class.png','',['height'=>'35px','width'=>'35px','title'=>'Groupe'])}}
+                       {{$group->group_name}} <span class="caret"></span>
+                        </a>
                     <ul class="dropdown-menu">
                         {{--<li><a href="{{route('student.index')}}">Élèves de la classe</a></li>--}}
                         <li><a href="#">Devoir de la classe</a></li>
@@ -111,3 +119,4 @@
         </div>
     </div>
 </nav>
+

@@ -4,7 +4,6 @@
 
 @section('content')
 
-
     @if(count($students) >0)
         <div class="panel panel-primary">
             <div class="panel-heading">

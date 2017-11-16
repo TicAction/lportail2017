@@ -1,3 +1,5 @@
+
+
 <!-- Scripts -->
 
 <script src="{{asset('js/app.js')}}"></script>
@@ -12,6 +14,7 @@
 </script>
 <script>
     $('#service').select2();
+    $('#cs').select2();
     $('#academy').select2();
     $('#special').select2();
     $('#student').select2();

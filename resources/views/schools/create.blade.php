@@ -27,7 +27,7 @@
                 <div class="form-group">
                     {!! Form::label('schoolboard_id',"Commission scolaire") !!}
 
-                    {!! Form::select('schoolboard_id',$schoolboards,'',['class'=>'form-control','id'=>'service','multiple']) !!}
+                    {!! Form::select('schoolboard_id',$schoolboards,'',['class'=>'form-control','id'=>'cs','multiple']) !!}
 
                 </div>
 
